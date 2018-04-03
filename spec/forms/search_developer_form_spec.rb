@@ -60,7 +60,7 @@ RSpec.describe SearchDeveloperForm do
       end
 
       it 'return empty if nobody know a programming language' do
-        form = SearchDeveloperForm.new(developers_search_form: { programming_language_id: 'kotlin' })
+        form = SearchDeveloperForm.new(developers_search_form: { programming_language_id: 'non_exisiting_programming_language' })
         expect(form.search.size).to eq(0)
       end
 
