@@ -34,27 +34,27 @@ RSpec.describe SearchDeveloperForm do
     end
 
     context 'with params' do
-      it 'return developer know a language' do
+      it 'returns a developer know a language' do
         form = SearchDeveloperForm.new(developers_search_form: { language_id: @language1.code })
         expect(form.search.size).to eq(1)
       end
 
-      it 'return empty if nobody know a language' do
+      it 'returns empty if nobody know a language' do
         form = SearchDeveloperForm.new(developers_search_form: { language_id: 'cn' })
         expect(form.search.size).to eq(0)
       end
 
-      it 'return 2 developer know a language' do
+      it 'returns 2 developers know a language' do
         form = SearchDeveloperForm.new(developers_search_form: { language_id: @language3.code })
         expect(form.search.size).to eq(2)
       end
 
-      it 'return 1 developer know a programming language' do
+      it 'returns 1 developer know a programming language' do
         form = SearchDeveloperForm.new(developers_search_form: { programming_language_id: @programming_language1.name })
         expect(form.search.size).to eq(1)
       end
 
-      it 'return 2 developer know a programming language' do
+      it 'return 2 developers know a programming language' do
         form = SearchDeveloperForm.new(developers_search_form: { programming_language_id: @programming_language3.name })
         expect(form.search.size).to eq(2)
       end
@@ -69,7 +69,7 @@ RSpec.describe SearchDeveloperForm do
         expect(form.search.size).to eq(1)
       end
 
-      it 'return 2 developer know a programming language and a language' do
+      it 'return 2 developers know a programming language and a language' do
         form = SearchDeveloperForm.new(developers_search_form: { programming_language_id: @programming_language3.name, language_id: @language3.code })
         expect(form.search.size).to eq(2)
       end
