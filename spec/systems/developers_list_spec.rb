@@ -49,51 +49,59 @@ RSpec.describe SearchDeveloperForm, type: :system do
                                          programming_language_id: @programming_language3.id)
 
       end
+
       it 'returns 1 developer matched language' do
         visit developer_list_path
-        fill_in 'developers_search_form_language', with: @language1.code
-        click_button('search')
+        fill_in 'developers_search_form_language_id', with: @language1.code
+        click_on('search')
         expect(page).to have_css('table tr', :count=>2)
       end
+
       it 'returns 2 developers matched language' do
         visit developer_list_path
-        fill_in 'developers_search_form_language', with: @language3.code
-        click_button('search')
+        fill_in 'developers_search_form_language_id', with: @language3.code
+        click_on('search')
         expect(page).to have_css('table tr', :count=>3)
       end
+
       it 'returns 1 developers matched programming language' do
         visit developer_list_path
-        fill_in 'developers_search_form_programming_language', with: @programming_language1.name
+        fill_in 'developers_search_form_programming_language_id', with: @programming_language1.name
         click_button('search')
         expect(page).to have_css('table tr', :count=>2)
       end
+
       it 'returns 2 developers matched programming language' do
         visit developer_list_path
-        fill_in 'developers_search_form_programming_language', with: @programming_language3.name
-        click_button('search')
+        fill_in 'developers_search_form_programming_language_id', with: @programming_language3.name
+        click_on('search')
         expect(page).to have_css('table tr', :count=>3)
       end
+
       it 'returns 1 developers matched both language and programming language' do
         visit developer_list_path
-        fill_in 'developers_search_form_language', with: @language1.code
-        fill_in 'developers_search_form_programming_language', with: @programming_language1.name
+        fill_in 'developers_search_form_language_id', with: @language1.code
+        fill_in 'developers_search_form_programming_language_id', with: @programming_language1.name
         click_button('search')
         expect(page).to have_css('table tr', :count=>2)
       end
+
       it 'returns 2 developers matched both language and programming language' do
         visit developer_list_path
-        fill_in 'developers_search_form_language', with: @language3.code
-        fill_in 'developers_search_form_programming_language', with: @programming_language3.name
-        click_button('search')
+        fill_in 'developers_search_form_language_id', with: @language3.code
+        fill_in 'developers_search_form_programming_language_id', with: @programming_language3.name
+        click_on('search')
         expect(page).to have_css('table tr', :count=>3)
       end
+
       it 'returns 0 developers matched' do
         visit developer_list_path
-        fill_in 'developers_search_form_language', with: 'wrong'
-        fill_in 'developers_search_form_programming_language', with: 'wrong'
-        click_button('search')
+        fill_in 'developers_search_form_language_id', with: 'wrong'
+        fill_in 'developers_search_form_programming_language_id', with: 'wrong'
+        click_on('search')
         expect(page).to have_css('table tr', :count=>1)
       end
+      
     end
   end
 

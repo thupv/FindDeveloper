@@ -45,47 +45,47 @@ RSpec.describe SearchDeveloperForm do
       end
 
       it 'return developer know a language' do
-        form = SearchDeveloperForm.new(developers_search_form: { language: @language1.code })
+        form = SearchDeveloperForm.new(developers_search_form: { language_id: @language1.code })
         expect(form.search.size).to eq(1)
       end
 
       it 'return empty if nobody know a language' do
-        form = SearchDeveloperForm.new(developers_search_form: { language: 'cn' })
+        form = SearchDeveloperForm.new(developers_search_form: { language_id: 'cn' })
         expect(form.search.size).to eq(0)
       end
 
       it 'return 2 developer know a language' do
-        form = SearchDeveloperForm.new(developers_search_form: { language: @language3.code })
+        form = SearchDeveloperForm.new(developers_search_form: { language_id: @language3.code })
         expect(form.search.size).to eq(2)
       end
 
       it 'return 1 developer know a programming language' do
-        form = SearchDeveloperForm.new(developers_search_form: { programming_language: @programming_language1.name })
+        form = SearchDeveloperForm.new(developers_search_form: { programming_language_id: @programming_language1.name })
         expect(form.search.size).to eq(1)
       end
 
       it 'return 2 developer know a programming language' do
-        form = SearchDeveloperForm.new(developers_search_form: { programming_language: @programming_language3.name })
+        form = SearchDeveloperForm.new(developers_search_form: { programming_language_id: @programming_language3.name })
         expect(form.search.size).to eq(2)
       end
 
       it 'return empty if nobody know a programming language' do
-        form = SearchDeveloperForm.new(developers_search_form: { programming_language: 'kotlin' })
+        form = SearchDeveloperForm.new(developers_search_form: { programming_language_id: 'kotlin' })
         expect(form.search.size).to eq(0)
       end
 
       it 'return 1 developer know a programming language and a language' do
-        form = SearchDeveloperForm.new(developers_search_form: { programming_language: @programming_language1.name, language: @language1.code })
+        form = SearchDeveloperForm.new(developers_search_form: { programming_language_id: @programming_language1.name, language: @language1.code })
         expect(form.search.size).to eq(1)
       end
 
       it 'return 2 developer know a programming language and a language' do
-        form = SearchDeveloperForm.new(developers_search_form: { programming_language: @programming_language3.name, language: @language3.code })
+        form = SearchDeveloperForm.new(developers_search_form: { programming_language_id: @programming_language3.name, language_id: @language3.code })
         expect(form.search.size).to eq(2)
       end
 
       it 'return empty if nobody know both a language and a programming language' do
-        form = SearchDeveloperForm.new(developers_search_form: { programming_language: @programming_language1.name, language: @language2.code })
+        form = SearchDeveloperForm.new(developers_search_form: { programming_language_id: @programming_language1.name, language_id: @language2.code })
         expect(form.search.size).to eq(0)
       end
 

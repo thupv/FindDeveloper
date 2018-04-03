@@ -1,6 +1,6 @@
 <%= form_for :developers_search_form, method: :get do |f| %>
-  Search language: <%= f.text_field :language %><br/>
-  Search programming language: <%= f.text_field :programming_language %><br/>
+  Search language: <%= f.text_field :language_id %><br/>
+  Search programming language: <%= f.text_field :programming_language_id %><br/>
   <%= f.submit "Search", id: "search" %>
 <% end %>
 
