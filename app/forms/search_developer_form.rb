@@ -2,8 +2,6 @@ class SearchDeveloperForm
   include Virtus.model
   include ActiveModel::Model
 
-# frozen_string_literal: true
-
   FORM_FIELDS = %i[
     language_id
     programming_language_id
