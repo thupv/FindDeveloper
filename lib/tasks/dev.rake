@@ -11,18 +11,15 @@ namespace :dev do
     @list_programming_language = []
 
     puts '========Start generate test data, params========'
-    puts 'Number of developer: ' + @args[:developers_num].to_s
-    puts 'Number of language: ' + @args[:languages_num].to_s
-    puts 'Number of programming language: ' + @args[:programming_languages_num].to_s
+    puts "Number of developer: #{@args[:developers_num]}"
+    puts "Number of language: #{@args[:languages_num]}"
+    puts "Number of programming language: #{@args[:programming_languages_num]}"
 
     create_language
     create_programming_language
     create_developer
 
-    puts 'Created: ' +
-           @list_developer.length.to_s + ' Developer, ' +
-           @list_language.length.to_s + ' Languages, ' +
-           @list_programming_language.length.to_s + ' Programming languages'
+    puts "Created: #{@list_developer.length} Developer, #{@list_language.length} Languages, #{@list_programming_language.length} Programming languages"
   end
 end
 
@@ -40,7 +37,7 @@ def create_language
       break code unless Language.exists?(code: code)
     end
     language = FactoryBot.create(:language, code: language_code)
-    puts 'Created a language: ' + language.code
+    puts "Created a language: #{language.code}"
     @list_language << language
   end
 end
@@ -52,7 +49,7 @@ def create_programming_language
       break name unless ProgrammingLanguage.exists?(name: name)
     end
     programming_language = FactoryBot.create(:programming_language, name: programming_language_name)
-    puts 'Created a programming language: ' + programming_language.name
+    puts "Created a programming language: #{programming_language.name}"
     @list_programming_language << programming_language
   end
 end
@@ -68,7 +65,7 @@ def create_developer
                                   email: email,
                                   languages: @list_language.sample(1 + rand(@list_language.count)),
                                   programming_languages: @list_programming_language.sample(1 + rand(@list_programming_language.count)))
-    puts 'Created a developer: ' + developer.email
+    puts "Created a developer: #{developer.email}"
     @list_developer << developer
   end
 end
