@@ -25,14 +25,15 @@ RSpec.describe SearchDeveloperForm do
                            languages: [@language3],
                            programming_languages: [@programming_language3])
     end
+
     context 'with no params' do
       it 'returns no developers' do
         form = SearchDeveloperForm.new({})
         expect(form.search.size).to eq(0)
       end
     end
-    context 'with params' do
 
+    context 'with params' do
       it 'return developer know a language' do
         form = SearchDeveloperForm.new(developers_search_form: { language_id: @language1.code })
         expect(form.search.size).to eq(1)
