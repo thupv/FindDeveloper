@@ -3,9 +3,26 @@ require 'rails_helper'
 RSpec.describe SearchDeveloperForm, type: :system do
   describe '#search' do
     before do
-      @developer1 = create(:developer, email: 'abc232112@gmail.com')
-      @developer2 = create(:developer, email: 'abc212113@gmail.com')
-      @developer3 = create(:developer, email: 'abc234114@gmail.com')
+      @language1 = create(:language, code: 'vn')
+      @language2 = create(:language, code: 'en')
+      @language3 = create(:language, code: 'jp')
+
+      @programming_language1 = create(:programming_language, name: 'ruby')
+      @programming_language2 = create(:programming_language, name: 'js')
+      @programming_language3 = create(:programming_language, name: 'c++')
+
+      @developer1 = create(:developer,
+                           email: 'abc2321@gmail.com',
+                           languages: [@language1, @language3],
+                           programming_languages: [@programming_language1, @programming_language3])
+      @developer2 = create(:developer,
+                           email: 'abc2121@gmail.com',
+                           languages: [@language2],
+                           programming_languages: [@programming_language2])
+      @developer3 = create(:developer,
+                           email: 'abc2341@gmail.com',
+                           languages: [@language3],
+                           programming_languages: [@programming_language3])
     end
     context 'success navigate to list page' do
       it 'success navigated' do
@@ -21,34 +38,6 @@ RSpec.describe SearchDeveloperForm, type: :system do
       end
     end
     context 'search with params' do
-      before do
-        @language1 = create(:language, code: 'vn')
-        @language2 = create(:language, code: 'en')
-        @language3 = create(:language, code: 'jp')
-
-        @programming_language1 = create(:programming_language, name: 'ruby')
-        @programming_language2 = create(:programming_language, name: 'js')
-        @programming_language3 = create(:programming_language, name: 'c++')
-
-        @developer_language1 = create(:developer_language, developer_id: @developer1.id, language_id: @language1.id)
-        @developer_language2 = create(:developer_language, developer_id: @developer2.id, language_id: @language2.id)
-        @developer_language3 = create(:developer_language, developer_id: @developer3.id, language_id: @language3.id)
-        @developer_language4 = create(:developer_language, developer_id: @developer1.id, language_id: @language3.id)
-
-        @developer_programming1 = create(:developer_programming,
-                                         developer_id: @developer1.id,
-                                         programming_language_id: @programming_language1.id)
-        @developer_programming2 = create(:developer_programming,
-                                         developer_id: @developer2.id,
-                                         programming_language_id: @programming_language2.id)
-        @developer_programming3 = create(:developer_programming,
-                                         developer_id: @developer3.id,
-                                         programming_language_id: @programming_language3.id)
-        @developer_programming4 = create(:developer_programming,
-                                         developer_id: @developer1.id,
-                                         programming_language_id: @programming_language3.id)
-
-      end
 
       it 'returns 1 developer matched language' do
         visit developer_list_path
