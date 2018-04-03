@@ -28,8 +28,8 @@ end
 
 def process_args(args)
   @args = {}
-  @args[:developers_num] = (args[:developers_num] || 10).to_i
-  @args[:languages_num] = (args[:languages_num] || 5).to_i
+  @args[:developers_num] = (args[:developers_num] || 100).to_i
+  @args[:languages_num] = (args[:languages_num] || 10).to_i
   @args[:programming_languages_num] = (args[:programming_languages_num] || 10).to_i
 end
 
