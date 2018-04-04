@@ -55,6 +55,7 @@ group :development do
   gem 'web-console', '>= 3.3.0'
   gem 'bullet'
   gem 'brakeman', :require => false
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
