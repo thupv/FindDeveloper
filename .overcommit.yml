@@ -20,7 +20,6 @@ PreCommit:
     enabled: true
     command: ['bundle', 'exec', 'rubocop']
     on_warn: fail # Treat all warnings as failures
-    problem_on_unmodified_line: ignore
   TrailingWhitespace:
     enabled: true
     exclude:
