@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 module Api
-  class DeveloperController < ApplicationController
+  class DeveloperController < BaseController
     before_action :set_developer, only: %i[show]
 
     def show
@@ -16,7 +18,7 @@ module Api
     private
 
     def set_developer
-      @developer = Developer.includes(:languages).includes(:programming_languages).find(params[:id].to_i)
+      @developer = Developer.includes(:developer_languages, :developer_programmings).find(params[:id])
     end
   end
 end
