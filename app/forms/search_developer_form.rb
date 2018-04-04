@@ -19,7 +19,7 @@ class SearchDeveloperForm
   def search
     return Developer.none if @developers_search_form.empty?
 
-    query = Developer.includes(:programming_languages, :languages, :developer_programmings, :developer_languages)
+    query = Developer.includes(:developer_programmings, :developer_languages)
     query = query.joins(:programming_languages).where(programming_languages: { name: programming_language_id}) if programming_language_id.present?
     query = query.joins(:languages).where(languages: { code: language_id }) if language_id.present?
     query
