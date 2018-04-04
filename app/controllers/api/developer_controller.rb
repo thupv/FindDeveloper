@@ -18,7 +18,7 @@ module Api
     private
 
     def set_developer
-      @developer = Developer.includes(:developer_languages, :developer_programmings).find(params[:id])
+      @developer = Developer.find(params[:id])
     end
   end
 end
