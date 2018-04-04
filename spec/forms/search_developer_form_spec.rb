@@ -1,4 +1,3 @@
-
 require 'rails_helper'
 
 RSpec.describe SearchDeveloperForm do
@@ -9,21 +8,20 @@ RSpec.describe SearchDeveloperForm do
       @language3 = create(:language, code: 'jp')
 
       @programming_language1 = create(:programming_language, name: 'ruby')
-      @programming_language2 = create(:programming_language, name: 'js')
       @programming_language3 = create(:programming_language, name: 'c++')
 
-      @developer1 = create(:developer,
-                           email: 'abc2321@gmail.com',
-                           languages: [@language1, @language3],
-                           programming_languages: [@programming_language1, @programming_language3])
-      @developer2 = create(:developer,
-                           email: 'abc2121@gmail.com',
-                           languages: [@language2],
-                           programming_languages: [@programming_language2])
-      @developer3 = create(:developer,
-                           email: 'abc2341@gmail.com',
-                           languages: [@language3],
-                           programming_languages: [@programming_language3])
+      create(:developer,
+             email: 'abc2321@gmail.com',
+             languages: [@language1, @language3],
+             programming_languages: [@programming_language1, @programming_language3])
+      create(:developer,
+             email: 'abc2121@gmail.com',
+             languages: [@language2],
+             programming_languages: [create(:programming_language, name: 'js')])
+      create(:developer,
+             email: 'abc2341@gmail.com',
+             languages: [@language3],
+             programming_languages: [@programming_language3])
     end
 
     context 'with no params' do
