@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Api::DeveloperController', type: :request do
   include_context 'api'
 
-  describe 'GET /api/developer/:developer_id' do
+  describe 'GET /api/v1/developer/:developer_id' do
     before do
       @language = create(:language)
       @programming_language = create(:programming_language)
@@ -14,7 +14,7 @@ RSpec.describe 'Api::DeveloperController', type: :request do
 
     context 'when developer exists' do
       before do
-        get "/api/developer/#{@developer.id}"
+        get "/api/v1/developer/#{@developer.id}"
       end
 
       let(:language) do
@@ -55,7 +55,7 @@ RSpec.describe 'Api::DeveloperController', type: :request do
 
     context 'when the developer does not exist' do
       before do
-        get '/api/developer/non_existing_id'
+        get '/api/v1/developer/non_existing_id'
       end
 
       it_behaves_like 'http_status_code_404'
