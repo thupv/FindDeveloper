@@ -5,10 +5,9 @@ RSpec.describe 'Api::DeveloperController', type: :request do
 
   describe 'GET /api/developer/:developer_id' do
     before do
-      @language = create(:language, code: 'vn')
-      @programming_language = create(:programming_language, name: 'ruby')
+      @language = create(:language)
+      @programming_language = create(:programming_language)
       @developer = create(:developer,
-                          email: 'abc2321@gmail.com',
                           languages: [@language],
                           programming_languages: [@programming_language])
     end
@@ -56,7 +55,7 @@ RSpec.describe 'Api::DeveloperController', type: :request do
 
     context 'when the post does not exist' do
       before do
-        get '/api/developer/non_exist_id'
+        get '/api/developer/non_existing_id'
       end
 
       it_behaves_like 'http_status_code_404'
