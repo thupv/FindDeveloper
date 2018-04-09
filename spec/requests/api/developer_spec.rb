@@ -53,7 +53,7 @@ RSpec.describe 'Api::DeveloperController', type: :request do
       it_behaves_like 'http_status_code_200_with_json'
     end
 
-    context 'when the post does not exist' do
+    context 'when the developer does not exist' do
       before do
         get '/api/developer/non_existing_id'
       end
