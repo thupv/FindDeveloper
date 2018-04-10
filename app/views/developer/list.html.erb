@@ -1,0 +1,28 @@
+<%= form_for :developers_search_form, method: :get do |f| %>
+  Search language: <%= f.text_field :language_id %><br/>
+  Search programming language: <%= f.text_field :programming_language_id %><br/>
+  <%= f.submit "Search", id: "search" %>
+<% end %>
+
+<table>
+  <tr>
+    <th>Developer</th>
+    <th>Language</th>
+    <th>Programming Language</th>
+  </tr>
+  <% @developers.each do |developer| %>
+    <tr>
+      <td> <%= developer.email %></td>
+      <td>
+        <% developer.languages.each do |language| %>
+          <%= language.code + ', '%>
+        <% end %>
+      </td>
+      <td>
+        <% developer.programming_languages.each do |pl| %>
+          <%= pl.name + ', '%>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>
+</table>
