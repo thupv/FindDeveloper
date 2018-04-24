@@ -105,6 +105,7 @@ GEM
       railties (>= 3.0.0)
     fast_jsonapi (1.1.1)
       activesupport (>= 4.2)
+    ffi (1.9.23-x64-mingw32)
     ffi (1.9.23-x86-mingw32)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
@@ -126,8 +127,11 @@ GEM
     minitest (5.11.3)
     multi_json (1.13.1)
     nio4r (2.3.0)
+    nokogiri (1.8.2-x64-mingw32)
+      mini_portile2 (~> 2.3.0)
     nokogiri (1.8.2-x86-mingw32)
       mini_portile2 (~> 2.3.0)
+    pg (1.0.0-x64-mingw32)
     pg (1.0.0-x86-mingw32)
     public_suffix (3.0.2)
     puma (3.11.3)
@@ -236,6 +240,7 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
+  x64-mingw32
   x86-mingw32
 
 DEPENDENCIES
