@@ -48,7 +48,6 @@ group :development, :test do
   gem 'capybara'
   gem 'bundler-audit', require: false
   gem 'selenium-webdriver'
-  gem 'chromedriver-helper'
 end
 
 group :development do
