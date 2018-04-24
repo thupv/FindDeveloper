@@ -20,7 +20,7 @@ jobs:
          environment:
           POSTGRES_USER: circleci
           POSTGRES_DB: GoodDeveloper_test
-          POSTGRES_PASSWORD: "vanthu123"
+          POSTGRES_PASSWORD: ""
 
     working_directory: ~/repo
 
